@@ -883,9 +883,9 @@ SwaggerOperation.prototype.pathXml = function() {
 };
 
 SwaggerOperation.prototype.urlify = function(args) {
-  url = this.resource.basePath.substring(0, this.resource.basePath.lastIndexOf("/"));
-  this.resource.basePath = url.substring(0, url.lastIndexOf("/")) + "/"
-  var url = this.resource.basePath + this.pathJson();
+  var url = this.resource.basePath.substring(0, this.resource.basePath.lastIndexOf("/"));
+  url = url.substring(0, url.lastIndexOf("/")) + "/"
+  url = url + this.pathJson();
   var params = this.parameters;
   for(var i = 0; i < params.length; i ++){
     var param = params[i];
