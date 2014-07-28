@@ -1375,6 +1375,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
       'click #feed': 'showCustomFeed',
       'click #content': 'showCustomContent',
       'click #shop': 'showCustomShop',
+      'click #subscription': 'showCustomSubscription',
       'keyup #input_baseUrl': 'showCustomOnKeyup',
       'keyup #input_apiKey': 'showCustomOnKeyup'
     };
@@ -1465,6 +1466,16 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
       }
       return this.trigger('update-swagger-ui', {
         url: $('#input_baseUrl1').val() + "/cart/api-docs.json",
+        apiKey: $('#input_apiKey').val()
+      });
+    };
+
+    HeaderView.prototype.showCustomSubscription = function(e) {
+      if (e != null) {
+        e.preventDefault();
+      }
+      return this.trigger('update-swagger-ui', {
+        url: $('#input_baseUrl1').val() + "/subscriptions/api-docs.json",
         apiKey: $('#input_apiKey').val()
       });
     };
